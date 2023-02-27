@@ -51,8 +51,31 @@
     <img class="h-48 rounded-full mx-3" src="/illustrations/photos/photo4.svg" alt="image4">
   </div>
 
-  <div class="flex justify-center mt-14">
+  <div class="text-center mt-20">
     <h3 class="font-bold text-custom-cyan">DES CAMPUS PARTOUT EN FRANCE</h3>
+    <div class="flex justify-center mt-7">
+      <div>
+        <img class="h-7 mx-7" src="/illustrations/campus/lyon.svg" alt="image1">
+        <h3 class="font-bold text-custom-grey text-sm my-3">2000 ÉTUDIANTS</h3>
+      </div>
+      <div>
+        <img class="h-8 mx-7" src="/illustrations/campus/paris.svg" alt="image2">
+        <h3 class="font-bold text-custom-grey text-sm my-2">2000 ÉTUDIANTS</h3>
+      </div>
+      <div>
+        <img class="h-4 my-2 mx-7" src="/illustrations/campus/annecy.svg" alt="image3">
+        <h3 class="font-bold text-custom-grey text-sm my-4">2000 ÉTUDIANTS</h3>
+      </div>
+      <div>
+        <img class="h-9 -my-1 mx-7" src="/illustrations/campus/nantes.svg" alt="image4">
+        <h3 class="font-bold text-custom-grey text-sm my-3">2000 ÉTUDIANTS</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-40">
+    <h3 class="font-bold text-custom-cyan mt-12">PLUSIEURS SPÉCIALITÉS</h3>
+    <h2 class="text-3xl font-extrabold text-custom-black">Les domaines les plus<br>demandés dans le digital</h2>
   </div>
 </template>
 
