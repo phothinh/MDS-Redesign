@@ -5,6 +5,7 @@ import CampusList from './components/CampusList.vue';
 import CustomButton from './components/CustomButton.vue';
 import DomainCard from './components/DomainCard.vue';
 import BlogCard from "./components/BlogCard.vue";
+import Review from "./components/Review.vue";
 
 </script>
 
@@ -18,6 +19,7 @@ export default {
     CustomButton,
     DomainCard,
     BlogCard,
+    Review,
   },
   data() {
     return {
@@ -92,6 +94,22 @@ export default {
           title: "Comment devenir développeur web ?",
         },
       ],
+      reviews: [
+        {
+          name: "Mélanie",
+          date: "Mars 2022",
+          content:
+            "J’ai passé clairement mes 2 meilleurs années scolaires à MyDigitalSchool. L’ambiance, les intervenants et les locaux m’ont permis de m’épanouir, gros big up pour la connexion internet !",
+          avatar: "/illustrations/review/photo1.svg",
+        },
+        {
+          name: "Léo",
+          date: "Juin 2017",
+          content:
+            "J’ai passé clairement mes 2 meilleurs années scolaires à MyDigitalSchool. L’ambiance, les intervenants et les locaux m’ont permis de m’épanouir, gros big up pour la connexion internet !",
+          avatar: "/illustrations/review/photo2.svg",
+        },
+      ],
     }
   },
   methods: {
@@ -103,66 +121,86 @@ export default {
 </script>
 
 <template>
-  
-  <NavBar/>
+  <body class="bg-custom-bg">
+    <NavBar/>
 
-  <div class="text-center mt-6">
-    <h1 class="text-5xl font-extrabold text-custom-black">La meilleure école des<br> métiers du digital</h1>
-    <CustomButton class="mt-10">Appelez-nous</CustomButton>
-  </div>
+    <div class="text-center mt-6">
+      <h1 class="text-5xl font-extrabold text-custom-black">La meilleure école des<br> métiers du digital</h1>
+      <CustomButton class="mt-10">Appelez-nous</CustomButton>
+    </div>
 
-  <div class="mt-14">
-    <custom-ball v-for="(ball, index) in balls" :key="index" :top="ball.top" :left="ball.left" :right="ball.right" :w="ball.w" :h="ball.h" :color="ball.color"></custom-ball>
-  </div>
+    <div class="mt-14">
+      <custom-ball v-for="(ball, index) in balls" :key="index" :top="ball.top" :left="ball.left" :right="ball.right" :w="ball.w" :h="ball.h" :color="ball.color"></custom-ball>
+    </div>
 
-  <div class="flex justify-center mt-14">
-    <img v-for="(image, index) in images"
-         :key="index"
-         :class="[getImageClass(index)]"
-         :src="image.url"
-         :alt="image.alt">
-  </div>
+    <div class="flex justify-center mt-14">
+      <img v-for="(image, index) in images"
+          :key="index"
+          :class="[getImageClass(index)]"
+          :src="image.url"
+          :alt="image.alt">
+    </div>
 
-  <div>
-    <CampusList
-      title="DES CAMPUS PARTOUT EN FRANCE"
-      :campuses="[
-        { name: 'Lyon', image: '/illustrations/campus/lyon.svg', class: 'h-7 mx-7', students: '2000', textClass: 'font-bold text-custom-grey text-sm my-3' }, 
-        { name: 'Paris', image: '/illustrations/campus/paris.svg', class: 'h-8 mx-7', students: '2000', textClass: 'font-bold text-custom-grey text-sm my-2' },
-        { name: 'Annecy', image: '/illustrations/campus/annecy.svg', class: 'h-4 my-2 mx-7', students: '2000', textClass: 'font-bold text-custom-grey text-sm my-4' },
-        { name: 'Nantes', image: '/illustrations/campus/nantes.svg', class: 'h-9 -my-1 mx-7', students: '2000', textClass: 'font-bold text-custom-grey text-sm my-3' }
-        ]"
-    />
-  </div>
+    <div>
+      <CampusList
+        title="DES CAMPUS PARTOUT EN FRANCE"
+        :campuses="[
+          { name: 'Lyon', image: '/illustrations/campus/lyon.svg', class: 'h-7 mx-7', students: '2000', textClass: 'font-bold text-custom-grey text-sm my-3' }, 
+          { name: 'Paris', image: '/illustrations/campus/paris.svg', class: 'h-8 mx-7', students: '2000', textClass: 'font-bold text-custom-grey text-sm my-2' },
+          { name: 'Annecy', image: '/illustrations/campus/annecy.svg', class: 'h-4 my-2 mx-7', students: '2000', textClass: 'font-bold text-custom-grey text-sm my-4' },
+          { name: 'Nantes', image: '/illustrations/campus/nantes.svg', class: 'h-9 -my-1 mx-7', students: '2000', textClass: 'font-bold text-custom-grey text-sm my-3' }
+          ]"
+      />
+    </div>
 
-  <div class="text-center mt-40">
-    <h3 class="font-bold text-custom-cyan mt-12">PLUSIEURS SPÉCIALITÉS</h3>
-    <h2 class="text-3xl font-extrabold text-custom-black">Les domaines les plus<br>demandés dans le digital</h2>
+    <div class="text-center mt-40">
+      <h3 class="font-bold text-custom-cyan mt-12">PLUSIEURS SPÉCIALITÉS</h3>
+      <h2 class="text-3xl font-extrabold text-custom-black">Les domaines les plus<br>demandés dans le digital</h2>
+      
+      <div class="flex justify-center items-center h-screen -my-12">
+        <DomainCard v-for="(domain, index) in domains"
+          :key="index"
+          :title = "domain.title"
+          :description="domain.description"
+        />
+      </div>
+
+      <CustomButton>Télécharger le programme</CustomButton>
+    </div>
+
+    <div class="w-full h-screen bg-custom-blue my-20 text-center pt-1">
+      <h3 class="text-3xl font-extrabold text-white mt-16 ">MyDigitalSchool, c’est aussi<br>un blog avec des conseils</h3>
     
-    <div class="flex justify-center items-center h-screen -my-12">
-      <DomainCard v-for="(domain, index) in domains"
-         :key="index"
-         :title = "domain.title"
-         :description="domain.description"
-      />
+      <div class="flex justify-center items-center h-screen -my-20">
+        <BlogCard
+          v-for="(card, index) in blogCards"
+          :key="index"
+          :image-src="card.imageSrc"
+          :date="card.date"
+          :title="card.title"
+        />
+      </div>
     </div>
 
-    <CustomButton>Télécharger le programme</CustomButton>
-  </div>
+    <div class="mx-20">
+      <h3 class="font-bold text-custom-blue font-extrabold text-3xl ml-4 w-80">Qu’est-ce que nos alumnis en pensent ?</h3>
+      <div class="flex justify-center items-center h-screen -my-20">
 
-  <div class="w-full h-screen bg-custom-blue my-20 text-center pt-1">
-    <h3 class="text-3xl font-extrabold text-white mt-16 ">MyDigitalSchool, c’est aussi<br>un blog avec des conseils</h3>
-   
-    <div class="flex justify-center items-center h-screen -my-20">
-      <BlogCard
-        v-for="(card, index) in blogCards"
-        :key="index"
-        :image-src="card.imageSrc"
-        :date="card.date"
-        :title="card.title"
-      />
+        <Review
+          v-for="(review, index) in reviews"
+          :key="index"
+          :name="review.name"
+          :date="review.date"
+          :content="review.content"
+          :avatar="review.avatar"
+        />
+
+      </div>
     </div>
-  </div>
+
+  </body>
+  
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
