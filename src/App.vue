@@ -4,6 +4,7 @@ import CustomBall from './components/CustomBall.vue';
 import CampusList from './components/CampusList.vue';
 import CustomButton from './components/CustomButton.vue';
 import DomainCard from './components/DomainCard.vue';
+import BlogCard from "./components/BlogCard.vue";
 
 </script>
 
@@ -16,6 +17,7 @@ export default {
     CampusList,
     CustomButton,
     DomainCard,
+    BlogCard,
   },
   data() {
     return {
@@ -66,6 +68,28 @@ export default {
         {
           title: 'Communication',
           description: 'Classée la 2ème meilleure école de France dans ce domaine, le marketing digital est la spécialité de MyDigitalSchool.',
+        },
+      ],
+      blogCards: [
+        {
+          imageSrc: "/illustrations/blog/photo1.svg",
+          date: "Posté le 4 mars",
+          title: "Comment devenir développeur web ?",
+        },
+        {
+          imageSrc: "/illustrations/blog/photo2.svg",
+          date: "Posté le 5 avril",
+          title: "UX vs UI Design, quelle est la différence ?",
+        },
+        {
+          imageSrc: "/illustrations/blog/photo3.svg",
+          date: "Posté le 9 avril",
+          title: "Top 10 des métiers du digital en 2023",
+        },
+        {
+          imageSrc: "/illustrations/blog/photo4.svg",
+          date: "Posté le 4 mars",
+          title: "Comment devenir développeur web ?",
         },
       ],
     }
@@ -122,7 +146,22 @@ export default {
          :description="domain.description"
       />
     </div>
-    
+
+    <CustomButton>Télécharger le programme</CustomButton>
+  </div>
+
+  <div class="w-full h-screen bg-custom-blue my-20 text-center pt-1">
+    <h3 class="text-3xl font-extrabold text-white mt-16 ">MyDigitalSchool, c’est aussi<br>un blog avec des conseils</h3>
+   
+    <div class="flex justify-center items-center h-screen -my-20">
+      <BlogCard
+        v-for="(card, index) in blogCards"
+        :key="index"
+        :image-src="card.imageSrc"
+        :date="card.date"
+        :title="card.title"
+      />
+    </div>
   </div>
 </template>
 
