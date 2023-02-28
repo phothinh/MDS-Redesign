@@ -198,6 +198,19 @@ export default {
       </div>
     </div>
 
+    <div class="flex justify-center items-center p-24 relative">
+      <img src="/illustrations/footer/Rectangle.svg" class="h-full">
+      <div class="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center">
+        <h1 class="text-white text-3xl font-bold text-center">Entre ton e-mail pour recevoir le<br>programme de l’école</h1>
+        <p class="text-white mt-6 text-sm">Nous t’enverrons le programme complet, et quelqu’un<br>prendra contact avec toi pour savoir tes besoins</p>
+        <div class="relative rounded-full overflow-hidden w-96 mt-16">
+          <input type="email" placeholder="Entre ton adresse e-mail ici" class="block w-full px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none" />
+          <button class="absolute top-0 right-0 w-28 px-4 py-2 text-white bg-custom-cyan rounded-full">Envoyer</button>
+        </div>
+      </div>
+    </div>
+    
+
   </body>
   
 </template>
