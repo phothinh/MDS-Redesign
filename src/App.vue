@@ -3,6 +3,7 @@ import NavBar from './components/NavBar.vue';
 import CustomBall from './components/CustomBall.vue';
 import CampusList from './components/CampusList.vue';
 import CustomButton from './components/CustomButton.vue';
+import DomainCard from './components/DomainCard.vue';
 
 </script>
 
@@ -14,17 +15,18 @@ export default {
     CustomBall,
     CampusList,
     CustomButton,
+    DomainCard,
   },
   data() {
     return {
       balls: [
-        { top: '25vw', left: '20vw', w: '4', h: '4', color: 'custom-cyan' },
-        { top: '26vw', right: '20vw', w: '4', h: '4', color: 'custom-cyan' },
-        { top: '32vw', right: '40vw', w: '3', h: '3', color: 'custom-dark' },
-        { top: '35vw', left: '12vw', w: '3', h: '3', color: 'custom-dark' },
-        { top: '50vw', left: '23vw', w: '4', h: '4', color: 'custom-darkcyan' },
-        { top: '42vw', right: '17vw', w: '6', h: '6', color: 'custom-darkcyan' },
-        { top: '53vw', right: '34vw', w: '3', h: '3', color: 'custom-cyan' }
+        { top: '25vw', left: '20vw', w: '4', h: '4', color: '#29B7C5' },
+        { top: '26vw', right: '20vw', w: '4', h: '4', color: '#29B7C5' },
+        { top: '32vw', right: '40vw', w: '3', h: '3', color: '#443A3A' },
+        { top: '35vw', left: '12vw', w: '3', h: '3', color: '#443A3A' },
+        { top: '50vw', left: '23vw', w: '4', h: '4', color: '#0F8793' },
+        { top: '42vw', right: '17vw', w: '6', h: '6', color: '#0F8793' },
+        { top: '53vw', right: '34vw', w: '3', h: '3', color: '#29B7C5' }
       ],
       images: [
         {
@@ -48,6 +50,24 @@ export default {
           class: 'mx-3',
         },
       ],
+      domains: [
+        {
+          title: 'Webmarketing',
+          description: 'Classée la 2ème meilleure école de France dans ce domaine, le marketing digital est la spécialité de MyDigitalSchool.',
+        },
+        {
+          title: 'UI & UX Design',
+          description: 'Classée la 2ème meilleure école de France dans ce domaine, le marketing digital est la spécialité de MyDigitalSchool.',
+        },
+        {
+          title: 'Programmation',
+          description: 'Classée la 2ème meilleure école de France dans ce domaine, le marketing digital est la spécialité de MyDigitalSchool.',
+        },
+        {
+          title: 'Communication',
+          description: 'Classée la 2ème meilleure école de France dans ce domaine, le marketing digital est la spécialité de MyDigitalSchool.',
+        },
+      ],
     }
   },
   methods: {
@@ -64,7 +84,7 @@ export default {
 
   <div class="text-center mt-6">
     <h1 class="text-5xl font-extrabold text-custom-black">La meilleure école des<br> métiers du digital</h1>
-    <CustomButton>Appelez-nous</CustomButton>
+    <CustomButton class="mt-10">Appelez-nous</CustomButton>
   </div>
 
   <div class="mt-14">
@@ -94,6 +114,15 @@ export default {
   <div class="text-center mt-40">
     <h3 class="font-bold text-custom-cyan mt-12">PLUSIEURS SPÉCIALITÉS</h3>
     <h2 class="text-3xl font-extrabold text-custom-black">Les domaines les plus<br>demandés dans le digital</h2>
+    
+    <div class="flex justify-center items-center h-screen -my-12">
+      <DomainCard v-for="(domain, index) in domains"
+         :key="index"
+         :title = "domain.title"
+         :description="domain.description"
+      />
+    </div>
+    
   </div>
 </template>
 
